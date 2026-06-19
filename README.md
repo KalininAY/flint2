@@ -18,6 +18,10 @@
   - `wget -O /tmp/podkop-install.sh https://raw.githubusercontent.com/itdoginfo/podkop/refs/heads/main/install.sh && sh /tmp/podkop-install.sh`
   - сконфигурировать `wget -O /tmp/podkop_setup.sh https://raw.githubusercontent.com/KalininAY/flint2/main/podkop_configuration.sh && sh /tmp/podkop_setup.sh`
 
+4. проверить wireguard-сервер
+   - цепочка `телефон-wg-роутер`
+   - цепочка `телефон-wg-Я.ВМ-wg-роутер` (каскад через белые списки)
+
 
 
 # hotfixes
