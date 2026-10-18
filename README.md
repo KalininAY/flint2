@@ -6,19 +6,34 @@
    - установить через интерфейс gl.inet http://192.168.8.1/#/upgrade
    - задать root-пароль, задать wifi: Torr194, Tor35
    - в http://192.168.8.1/#/management-control задать порт ssh
+   - задать списки репозиториев opkg <details><summary>details</summary>
+
+      ```
+      cat > /etc/opkg/distfeeds.conf << EOF
+      src/gz openwrt_core https://downloads.openwrt.org/releases/24.10.4/targets/mediatek/filogic/packages
+      src/gz base https://downloads.openwrt.org/releases/24.10.4/packages/aarch64_cortex-a53/base
+      src/gz luci https://downloads.openwrt.org/releases/24.10.4/packages/aarch64_cortex-a53/luci
+      src/gz packages https://downloads.openwrt.org/releases/24.10.4/packages/aarch64_cortex-a53/packages
+      src/gz routing https://downloads.openwrt.org/releases/24.10.4/packages/aarch64_cortex-a53/routing
+      src/gz telephony https://downloads.openwrt.org/releases/24.10.4/packages/aarch64_cortex-a53/telephony
+      src/gz openwrt_kmods https://downloads.openwrt.org/releases/24.10.4/targets/mediatek/filogic/kmods/6.6.110-1-6a9e125268c43e0bae8cecb014c8ab03
+      EOF
+      ```
+   </details>
+   
    - opkg update, проверить наличие пакета nft-queue
    - загрузить backup, проверить wireguard-сервер-профили http://192.168.8.1/#/wgserver
 
-2. установить ЗАПРЕТ
+3. установить ЗАПРЕТ
    - `wget -O /tmp/Zapret-Manager.sh https://raw.githubusercontent.com/StressOzz/Zapret-Manager/main/Zapret-Manager.sh && sh /tmp/Zapret-Manager.sh`
    - проверить стратегии на телевизоре, ноуте, айфоне
    - может понадобиться создание симлинка (если запрет не запускает и пишет, что нет указанного файла в /opt/zapret/files/fake/)
 
-3. установить ПОДКОП
+4. установить ПОДКОП
    - `wget -O /tmp/podkop-install.sh https://raw.githubusercontent.com/itdoginfo/podkop/refs/heads/main/install.sh && sh /tmp/podkop-install.sh`
    - сконфигурировать `wget -O /tmp/podkop_setup.sh https://raw.githubusercontent.com/KalininAY/flint2/main/podkop_configuration.sh && sh /tmp/podkop_setup.sh`
 
-4. проверить wireguard-сервер
+5. проверить wireguard-сервер
    - цепочка `телефон-wg-роутер`
    - цепочка `телефон-wg-Я.ВМ-wg-роутер` (каскад через белые списки)
 
